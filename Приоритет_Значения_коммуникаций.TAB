@@ -1,0 +1,20 @@
+!table
+!version 300
+!charset WindowsCyrillic
+
+Definition Table
+  Type NATIVE Charset "WindowsCyrillic"
+  Fields 8
+    Код Float ;
+    Тип_коммуникации Char (16) ;
+    Значение Char (48) ;
+    Источник3 Char (21) ;
+    Приоритет Float ;
+    Градация_ОМО Char (43) ;
+    Градация_ОИО Char (43) ;
+    Значение_уникальное Char (74) ;
+begin_metadata
+"\IsReadOnly" = "FALSE"
+"\MapInfo" = ""
+"\MapInfo\TableID" = "80a064c4-ae9c-45c6-b579-5c4a77544bed"
+end_metadata
