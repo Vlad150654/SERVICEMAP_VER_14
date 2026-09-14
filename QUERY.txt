@@ -1,0 +1,93 @@
+[Window Title]
+Mapinfow
+
+[Content]
+Число выражений значений строк в инструкции INSERT превышает максимально допустимое число 1000 значений строк
+
+
+Объекты цепляются по кадастровому номеру и реквизитам писем (дата, номер).
+NUMBERINPUTINFO	
+
+FoundationDate+#9+xl.DATEINPUTINFO);
+DATEFORM дата пакета
+DATEINPUTINFO дата входящего письма
+NUMBERINPUTINFO номер входяшего письма
+
+W:\ЦГКО\IT\___Программы\Дежурная карта_VER_12\Письма\2024_04_01\958
+W:\ЦГКО\IT\___Программы\Дежурная карта_VER_12\Письма\2024_04_01\1036
+W:\ЦГКО\IT\___Программы\Дежурная карта_VER_12\Письма\2024_04_01\1039
+W:\ЦГКО\IT\___Программы\Дежурная карта_VER_12\Письма\2024_04_01\1037
+W:\ЦГКО\IT\___Программы\Дежурная карта_VER_12\Письма\2024_04_01\1138@
+для тестированя:
+D:\temp\tmp
+
+дублирую	W:\ЦГКО\IT\___Программы\Дежурная карта_VER_12\Письма\2024_04_01\1039\xml\ListForRat_Building_0003.csv
+CadastralNumber	ObjectType	DATEFORM	NUMBERINPUTINFO	DATEINPUTINFO
+66:61:0211010:342	2001002000	25.03.2024	1039	27.03.2024
+66:62:0000000:479	2001002000	25.03.2024	1039	27.03.2024
+66:62:0000000:565	2001002000	25.03.2024	1039	27.03.2024
+66:63:0000000:1233	2001002000	25.03.2024	1039	27.03.2024
+66:63:0101035:61	2001002000	25.03.2024	1039	27.03.2024
+
++++++++++++++++++++++++++++++++++++++
+SELECT [ID]
+      ,[CADASTRALNUMBER]
+      ,[DATEFORM]
+      ,[TYPE_OBJ]
+      ,[ObjectType]
+	  ,[NUMBERINPUTINFO]
+      ,[PRIM]
+      ,[DATEINPUTINFO]
+	  ,[QUESTION_ID]
+  FROM [zisadmin].[ZAPROS16ST] WHERE question_id > 66
+
+update zisadmin.ZAPROS16ST SET PRIM = 'В ОЖИДАНИИ ОБРАБОТКИ' Where (question_id=67)
+
+select * from zisadmin.ZAPROS16ST where CADASTRALNUMBER='66:61:0211010:342'
+
+DELETE zisadmin.ZAPROS16ST WHERE question_id > 66
+
+SELECT  CADASTRALNUMBER
+  FROM [zisadmin].[ZAPROS16ST] WHERE question_id > 66 order by [CADASTRALNUMBER]
+
+
+SELECT DISTINCT [CADASTRALNUMBER] FROM zisadmin.ZAPROS16ST where question_id > 66
+
+SELECT  [CADASTRALNUMBER] FROM zisadmin.ZAPROS16ST where question_id > 66
+
+SELECT zisadmin.ZAPROS16ST.* FROM zisadmin.ZAPROS16ST LEFT OUTER JOIN
+ (SELECT MIN(id) AS id, CADASTRALNUMBER FROM zisadmin.ZAPROS16ST GROUP BY CADASTRALNUMBER) AS tmp
+ ON zisadmin.ZAPROS16ST.id = tmp.id WHERE (tmp.id IS NULL) and (ZAPROS16ST.question_id=67) order by CADASTRALNUMBER
+
+
+SELECT CADASTRALNUMBER, count(CADASTRALNUMBER) as countcn
+FROM zisadmin.ZAPROS16ST
+WHERE (question_id=67)
+GROUP BY CADASTRALNUMBER
+HAVING count(CADASTRALNUMBER)>1;
+
+SELECT CADASTRALNUMBER, count(CADASTRALNUMBER) as countcn into #tmp 
+FROM zisadmin.ZAPROS16ST
+WHERE question_id=67
+GROUP BY CADASTRALNUMBER
+HAVING count(CADASTRALNUMBER)>1
+select * from #tmp
+drop table #tmp
+///////////////////////////
+SELECT zisadmin.ZAPROS16ST.*
+ FROM zisadmin.ZAPROS16ST LEFT OUTER JOIN 
+ (SELECT MIN(id) AS id, CADASTRALNUMBER FROM zisadmin.ZAPROS16ST where question_id=67 GROUP BY CADASTRALNUMBER) AS tmp 
+ ON zisadmin.ZAPROS16ST.id = tmp.id WHERE (tmp.id IS NULL) and (question_id=67)
+
+SELECT zisadmin.ZAPROS16ST.* into #temp 
+ FROM zisadmin.ZAPROS16ST LEFT OUTER JOIN 
+ (SELECT MIN(id) AS id, CADASTRALNUMBER FROM zisadmin.ZAPROS16ST where question_id=67 GROUP BY CADASTRALNUMBER) AS tmp 
+ ON zisadmin.ZAPROS16ST.id = tmp.id WHERE (tmp.id IS NULL) and (question_id=67);
+select * from #temp;
+drop table #temp;
+
+SELECT zisadmin.ZAPROS16ST.* into #temp FROM zisadmin.ZAPROS16ST LEFT OUTER JOIN 
+(SELECT MIN(id) AS id, CADASTRALNUMBER FROM zisadmin.ZAPROS16ST where question_id=67
+GROUP BY CADASTRALNUMBER) AS tmp ON zisadmin.ZAPROS16ST.id = tmp.id WHERE (tmp.id IS NULL) and (question_id=67)
+
+Select * from zisadmin.ZAPROS16ST Where (CadastralNumber='66:61:0211010:342') order by id

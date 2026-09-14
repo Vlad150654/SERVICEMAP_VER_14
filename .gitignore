@@ -1,0 +1,26 @@
+# Игнорируем историю и автовосстановление Delphi
+__history/
+__recovery/
+
+# Игнорируем результаты компиляции и временные файлы среды
+*.dcu
+*.identcache
+*.local
+*.dsk
+*.~*
+*.zip
+*.7z
+/Win32/Debug/*.exe
+/Win32/Debug/*.dll
+/Win32/Debug/*.zip
+/Win32/Debug/*.7z
+/Win32/Debug/BASE/
+/Win32/Debug/GDAL/
+/Win32/Debug/ODS/
+/Win32/Debug/TEST/
+/Win32/Debug/dcu/
+/Win32/Debug/CF_4/
+/Win32/Debug/CF_5/
+/Win32/Debug/Новый источник данных/
+/Win32/Debug/Ценовые факторы_4/
+/Win32/Debug/Ценовые факторы_5/

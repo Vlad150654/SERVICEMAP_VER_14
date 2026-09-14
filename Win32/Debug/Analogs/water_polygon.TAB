@@ -1,0 +1,19 @@
+!table
+!version 300
+!charset WindowsCyrillic
+
+Definition Table
+  Type NATIVE Charset "WindowsCyrillic"
+  Fields 7
+    NAME Char (97) ;
+    NAME_RU Char (80) ;
+    NATURAL Char (80) ;
+    WATERWAY Char (80) ;
+    WETLAND Char (80) ;
+    OSM_TYPE Char (80) ;
+    OSM_ID Decimal (18, 0) ;
+begin_metadata
+"\IsReadOnly" = "FALSE"
+"\MapInfo" = ""
+"\MapInfo\TableID" = "26d208cf-d56f-49b1-8ca4-9b559ae9162f"
+end_metadata

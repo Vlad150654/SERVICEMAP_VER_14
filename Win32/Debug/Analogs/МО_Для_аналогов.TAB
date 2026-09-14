@@ -1,0 +1,16 @@
+!table
+!version 1000
+!charset WindowsCyrillic
+
+Definition Table
+  Type NATIVE Charset "WindowsCyrillic"
+  Fields 3
+    мо Char (124) ;
+    сокр Char (46) ;
+    Новый_ОКТМО_МР Integer Index 2 ;
+begin_metadata
+"\IsReadOnly" = "FALSE"
+"\MapInfo" = ""
+"\MapInfo\TableID" = "4b3bbe5a-9b47-4698-aa37-64c261171c6a"
+"\MapInfo\ParentTableID" = "c27edf96-fb87-43c8-aff8-da3be2d3e51e"
+end_metadata

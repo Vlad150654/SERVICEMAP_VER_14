@@ -1,0 +1,20 @@
+!table
+!version 300
+!charset WindowsCyrillic
+
+Definition Table
+  Type NATIVE Charset "WindowsCyrillic"
+  Fields 7
+    Osm_id Char (12) ;
+    Code Decimal (11, 0) ;
+    Fclass Char (28) ;
+    Name_OSM Char (100) ;
+    Name Char (100) ;
+    Prfx Char (15) ;
+    Ref Char (20) ;
+begin_metadata
+"\IsReadOnly" = "FALSE"
+"\MapInfo" = ""
+"\MapInfo\TableID" = "2ce286c4-ea33-458e-b4cb-1551fa87c210"
+"\MapInfo\ParentTableID" = "5b9649a7-6f2b-41cd-b894-4ff3af4ba389"
+end_metadata

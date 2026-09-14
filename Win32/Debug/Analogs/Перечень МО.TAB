@@ -1,0 +1,16 @@
+!table
+!version 1000
+!charset WindowsCyrillic
+
+Definition Table
+  File "перечень мо.xlsx"
+  Type XLS Titles Range "Лист1!A2:C74"
+  Fields 3
+    Муниципальнай_округ__городской_ Char (124) Index 1 ;
+    Сокращенное_наименование_муници Char (46) ;
+    Новый_ОКТМО_МР Char (16) ;
+begin_metadata
+"\IsReadOnly" = "FALSE"
+"\MapInfo" = ""
+"\MapInfo\TableID" = "bd46a707-dc5a-4c5f-91af-019a3c8447f0"
+end_metadata

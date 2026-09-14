@@ -1,0 +1,16 @@
+!table
+!version 300
+!charset WindowsCyrillic
+
+Definition Table
+  Type NATIVE Charset "WindowsCyrillic"
+  Fields 4
+    ID Integer ;
+    Zona Char (150) ;
+    Zona_rus Char (50) ;
+    ITOG Char (50) ;
+begin_metadata
+"\IsReadOnly" = "FALSE"
+"\MapInfo" = ""
+"\MapInfo\TableID" = "a1a2a59a-9fbf-41d4-b9d7-2df5c48c4f7d"
+end_metadata

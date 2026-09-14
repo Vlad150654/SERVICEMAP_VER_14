@@ -1,0 +1,63 @@
+Include "MapBasic.Def"
+Include "Menu.Def"
+Include "ICONS.DEF"
+
+Dim hlib As Integer
+
+Declare Sub RemoteMsgHandler
+
+Declare Function LoadLibraryA Lib "kernel32.dll" (ByVal DllName As String) As Integer
+Declare Function FreeLibrary Lib "kernel32.dll" (ByVal hLib As Integer) As Integer
+Declare Function SetCurrentDirectoryA LIB "kernel32.dll" (ByVal ApplicationDir As String) As Logical
+Declare Sub OpenServiceMap LIB "ServiceMap.dll" (ByVal MiWnd As Integer)
+Declare Sub CloseServiceMap LIB "ServiceMap.dll" ()
+
+Declare Sub Main
+Declare Sub EndHandler
+
+'====================================================================================
+Sub EndHandler
+	Call CloseServiceMap
+	hlib = FreeLibrary(hlib)
+End Sub
+'====================================================================================
+Sub RemoteMsgHandler
+	Dim Message as String
+
+	Message = CommandInfo(CMD_INFO_MSG)
+	If InStr(1, Message, "CloseServiceMap") = 1 Then
+		End Program
+	End If
+End Sub
+'====================================================================================
+Sub Main
+	Dim mbname As String
+	Dim Ok As Logical
+
+	Dim hlib As Integer
+	hlib = LoadLibraryA("C:\Windows\System32\user32.dll")
+	note "user32.dll	" + Str$(hlib)
+
+	hlib = LoadLibraryA("C:\Program Files (x86)\GDAL\gdal.dll")
+	note "Windows gdal.dll	" + Str$(hlib)	
+
+	hlib = LoadLibraryA("D:\Tokyo\SERVICEMAP_VER_12\Win32\Debug\GDAL\gdal.dll")
+	note "gdal.dll	" + Str$(hlib)	
+
+	If SetCurrentDirectoryA("D:\Tokyo\SERVICEMAP_VER_12\Win32\Debug\GDAL\") Then
+		hlib = LoadLibraryA("gdal.dll")
+		note "gdal.dll	" + Str$(hlib)	
+	End If
+
+'	hlib = LoadLibraryA("D:\Tokyo\TRANSFORM\win32\TransCoords.dll")
+'	note "TransCoords.dlle	" + Str$(hlib)
+
+	mbName = ApplicationDirectory$()
+	hlib = LoadLibraryA(mbname + "ServiceMap.dll")
+	If SetCurrentDirectoryA(mbName) Then
+		Call OpenServiceMap(SystemInfo(SYS_INFO_APPIDISPATCH))
+	End If
+End Sub
+
+
+

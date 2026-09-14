@@ -1,0 +1,28 @@
+!table
+!version 1000
+!charset WindowsCyrillic
+
+Definition Table
+  Type NATIVE Charset "WindowsCyrillic"
+  Fields 16
+    МО_ГО_МР Char (124) ;
+    Сокращенное_наименование Char (46) ;
+    Новый_ОКТМО_МР Integer Index 1 ;
+    IDCGKO Char (30) ;
+    ID Integer ;
+    Кадастровый_район Char (10) ;
+    Округ Char (40) ;
+    Вид_АТЕ Char (50) ;
+    Наименование_АТЕ Char (40) ;
+    Примечание Char (150) ;
+    КодНП_МО Char (30) Index 2 ;
+    НаименованиеНП_МО Char (80) ;
+    Префикс Char (10) ;
+    Наименование_МО Char (80) ;
+    Учетный Char (22) ;
+    Дата_внесения Date ;
+begin_metadata
+"\IsReadOnly" = "FALSE"
+"\MapInfo" = ""
+"\MapInfo\TableID" = "5954ce1c-bb16-46ff-ab2c-25c86a34d32f"
+end_metadata

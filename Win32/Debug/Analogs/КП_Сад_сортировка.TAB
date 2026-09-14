@@ -1,0 +1,24 @@
+!table
+!version 300
+!charset WindowsCyrillic
+
+Definition Table
+  Type NATIVE Charset "WindowsCyrillic"
+  Fields 12
+    ID_КП_САДы Integer ;
+    название Char (250) ;
+    Категория_ЗУ Char (18) ;
+    X Float ;
+    Y Float ;
+    СпутникXY Char (40) ;
+    Вид_АТЕ Char (45) ;
+    Наименование_АТЕ Char (45) ;
+    НаименованиеНП_МО Char (100) ;
+    Наименование_МО Char (100) ;
+    Подпись_SAS Char (200) ;
+    Новая_подпись_SAS Char (160) ;
+begin_metadata
+"\IsReadOnly" = "FALSE"
+"\MapInfo" = ""
+"\MapInfo\TableID" = "07b3ff91-fd58-4c1d-9652-3c8172a84c91"
+end_metadata
