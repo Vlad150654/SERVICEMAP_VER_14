@@ -147,9 +147,9 @@ end;
 {------------------------------------------------------------------------------}
 procedure TLettersForm.btPacketClick(Sender: TObject);
 begin
-{$IFDEF DEBUG}path := 'D:\Tokyo\SERVICEMAP_VER_12\Win32\Debug\TEST\Outbox_Статья_16_2024\2024_04_04\Письма\';{$ENDIF}  //1124,1125...
-{$IFDEF DEBUG}path := 'D:\Tokyo\SERVICEMAP_VER_14\Win32\Debug\TEST\Ошибка кн\Первичная обработка писем';{$ENDIF}  //2525
-{$IFDEF DEBUG}path := 'D:\Tokyo\SERVICEMAP_VER_14\Win32\Debug\TEST\перечни от 31.08.2026\';{$ENDIF}  //2314,2315...
+{$IFDEF DEBUG}path := 'D:\Tokyo\SERVICEMAP_VER_14\Win32\Debug\TEST\Outbox_Статья_16_2024\2024_04_04\Письма\';{$ENDIF}  //1124,1125...
+//{$IFDEF DEBUG}path := 'D:\Tokyo\SERVICEMAP_VER_14\Win32\Debug\TEST\Ошибка кн\Первичная обработка писем';{$ENDIF}  //2525
+//{$IFDEF DEBUG}path := 'D:\Tokyo\SERVICEMAP_VER_14\Win32\Debug\TEST\перечни от 31.08.2026\';{$ENDIF}  //2314,2315...
 
 //  if path = '' then
 //    path := 'W:\ЦГКО\IT\Outbox\Статья 16\2024';
@@ -179,7 +179,12 @@ var
   ExcelApp : OleVariant;
   sa : StringArray;
 begin
-  if leDateInputinfo.Text = '' then//31.08.2026
+//{$IFDEF DEBUG}path := 'D:\Tokyo\SERVICEMAP_VER_14\Win32\Debug\TEST\перечни от 31.08.2026\';
+//  leDateInputinfo.Text := '31.08.2026';
+//  leNumberInputinfo.Text := '2314';
+//{$ENDIF}
+
+  if leDateInputinfo.Text = '' then//21.09.2026
     Exc('Дата письма не определена!');
   if leNumberInputinfo.Text = '' then//2314
     Exc('Номер письма не определен!');
